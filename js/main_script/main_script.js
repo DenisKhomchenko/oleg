@@ -20,8 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
             itemPoint = window.innerHeight - window.innerHeight / animStart;
           }
 
-          if (pageYOffset > itemOffset - itemPoint && pageYOffset < itemOffset + itemHeight && !item.classList.contains('is-animate')) {
+          if (pageYOffset > itemOffset - itemPoint && pageYOffset < itemOffset + itemHeight) {
             item.classList.add('is-animate');
+          } else {
+            item.classList.remove('is-animate');
           }
         });
       };
@@ -46,52 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ 1676:
-/***/ (function() {
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-addEventListener('DOMContentLoaded', function () {
-  var smoothLinks = document.querySelectorAll('a[href*="#"]');
-
-  var _iterator = _createForOfIteratorHelper(smoothLinks),
-      _step;
-
-  try {
-    var _loop = function _loop() {
-      var smoothLink = _step.value;
-      smoothLink.addEventListener('click', function (e) {
-        var id = smoothLink.getAttribute('href');
-        e.preventDefault();
-
-        if (id != "#") {
-          document.querySelector(id).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    };
-
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      _loop();
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-
-  ;
-});
-
-/***/ }),
-
-/***/ 1021:
+/***/ 3713:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -382,8 +339,17 @@ window.runMask = function () {
     }
   }
 }; // window.runMask() перезапуск маски
-// EXTERNAL MODULE: ./src/components/link/scripts.js
-var link_scripts = __webpack_require__(1676);
+// EXTERNAL MODULE: ./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js
+var smooth_scroll_polyfills_min = __webpack_require__(3002);
+var smooth_scroll_polyfills_min_default = /*#__PURE__*/__webpack_require__.n(smooth_scroll_polyfills_min);
+;// CONCATENATED MODULE: ./src/components/link/scripts.js
+
+addEventListener('DOMContentLoaded', function () {
+  var scroll = new (smooth_scroll_polyfills_min_default())('a[href*="#"]', {
+    speed: 1800,
+    easing: 'easeInOutQuint'
+  });
+});
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
 var defineProperty = __webpack_require__(4942);
 // EXTERNAL MODULE: ./node_modules/gator/gator.js
@@ -794,7 +760,7 @@ src_init();
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(1021); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(3713); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
