@@ -346,7 +346,7 @@ var smooth_scroll_polyfills_min_default = /*#__PURE__*/__webpack_require__.n(smo
 
 addEventListener('DOMContentLoaded', function () {
   var scroll = new (smooth_scroll_polyfills_min_default())('a[href*="#"]', {
-    speed: 1800,
+    speed: 2400,
     easing: 'easeInOutQuint',
     updateURL: false
   });
