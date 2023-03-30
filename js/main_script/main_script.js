@@ -48,79 +48,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ 3713:
+/***/ 5301:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js
-var classCallCheck = __webpack_require__(5671);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
-var createClass = __webpack_require__(3144);
-;// CONCATENATED MODULE: ./src/components/cookies/scripts.js
-
-
-
-var Cookies = /*#__PURE__*/function () {
-  function Cookies() {
-    (0,classCallCheck/* default */.Z)(this, Cookies);
-
-    if (!Cookies.hasCookiesAcceptation()) {
-      this.initComponent();
-    }
-  }
-
-  (0,createClass/* default */.Z)(Cookies, [{
-    key: "initComponent",
-    value: function initComponent() {
-      this.buildTemplate();
-      this.attachEvents();
-    }
-  }, {
-    key: "buildTemplate",
-    value: function buildTemplate() {
-      this.element = document.createElement('div');
-      this.element.classList.add('cookies');
-      this.element.innerHTML = "\n        <div class=\"cookies__inner\">\n            <div class=\"text-md cookies__text\">\u041C\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C cookie \u043D\u0430 \u043D\u0430\u0448\u0435\u043C \u0441\u0430\u0439\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043E\u043D \u0440\u0430\u0431\u043E\u0442\u0430\u043B \u0438\u0441\u043F\u0440\u0430\u0432\u043D\u043E</div>\n            <button class=\"button cookies__button jsCookiesButton\" type=\"button\">\n                <span>\u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D \u0438 \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u044E</span>\n            </button>\n        </div>\n        ";
-      document.body.append(this.element);
-      setTimeout(function () {
-        document.querySelector('.cookies').classList.add('is-show');
-      }, 2000);
-    }
-  }, {
-    key: "attachEvents",
-    value: function attachEvents() {
-      var _this = this;
-
-      document.querySelector('.jsCookiesButton').addEventListener('click', function (e) {
-        Cookies.createEntity();
-        document.querySelector('.cookies').classList.remove('is-show');
-        setTimeout(function () {
-          _this.element.remove();
-        }, 750);
-      });
-    }
-  }], [{
-    key: "hasCookiesAcceptation",
-    value: function hasCookiesAcceptation() {
-      return window.localStorage.getItem('cookiesAcceptation');
-    }
-  }, {
-    key: "createEntity",
-    value: function createEntity() {
-      window.localStorage.setItem('cookiesAcceptation', 'true');
-    }
-  }]);
-
-  return Cookies;
-}();
-
-/* harmony default export */ var scripts = (Cookies);
 // EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
 var jquery = __webpack_require__(9755);
 var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 // EXTERNAL MODULE: ./src/components/animations/scripts.js
-var animations_scripts = __webpack_require__(5039);
+var scripts = __webpack_require__(5039);
 // EXTERNAL MODULE: ./node_modules/bootstrap/dist/js/bootstrap.esm.js + 1 modules
 var bootstrap_esm = __webpack_require__(4712);
 ;// CONCATENATED MODULE: ./src/components/modal/scripts.js
@@ -346,6 +283,7 @@ var smooth_scroll_polyfills_min_default = /*#__PURE__*/__webpack_require__.n(smo
 
 addEventListener('DOMContentLoaded', function () {
   var scroll = new (smooth_scroll_polyfills_min_default())('a[href*="#"]', {
+    ignore: 'a[href="#"]',
     speed: 2400,
     easing: 'easeInOutQuint',
     updateURL: false
@@ -544,7 +482,7 @@ var registerFormValidator = function registerFormValidator() {
 
 /* harmony default export */ var formValidator_init = (registerFormValidator);
 ;// CONCATENATED MODULE: ./src/init.js
-
+// import Cookies from '@components/cookies/scripts.js';
 
 
 
@@ -555,8 +493,8 @@ var registerFormValidator = function registerFormValidator() {
 
 
 var init = function init() {
-  __webpack_require__.g.spiks = {};
-  new scripts();
+  __webpack_require__.g.spiks = {}; // new Cookies();
+
   formValidator_init();
   __webpack_require__.g.$ = (jquery_default());
 };
@@ -761,7 +699,7 @@ src_init();
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(3713); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(5301); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

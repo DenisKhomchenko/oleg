@@ -12,9 +12,6 @@
     <link rel="preload" href="assets/media/preloader/frame.svg" as="image">
     <link rel="preload" href="assets/media/preloader/frame-stars.svg" as="image">
     <style type="text/css">
-      .body {
-        overflow-x: hidden;
-      }
       .preloader {
         position: fixed;
         top: 0;
@@ -38,7 +35,7 @@
         transition-delay: 0.2s;
       }
       .preloader.is-loaded .preloader__main {
-        scale: 0.95;
+        scale: 0.88;
       }
       .preloader__bg {
         position: absolute;
@@ -82,8 +79,8 @@
       }
       .preloader__frame-stars {
         display: block;
-        width: 332px;
-        height: 332px;
+        width: 94.85%;
+        height: 94.85%;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -108,6 +105,21 @@
         text-fill-color: transparent;
         -webkit-animation: scaleToggle 4s ease infinite forwards;
         animation: scaleToggle 4s ease infinite forwards;
+      }
+      @media only screen and (max-width: 833px) {
+        .preloader__main {
+          width: 320px;
+          height: 320px;
+        }
+        .preloader__count {
+          font-size: 40px;
+        }
+      }
+      @media only screen and (max-width: 575px) {
+        .preloader__main {
+          width: 280px;
+          height: 280px;
+        }
       }
     </style>
     <script defer src="js/vendors/vendors.js"></script>
@@ -158,8 +170,8 @@
       </section>
       <section class="s-intro" id="intro">
         <picture class="s-intro__bg">
-          <source srcset="assets\media\intro\background--mb.svg" media="(max-width: 833px)" /><img
-            src="assets\media\intro\background.svg" alt="" />
+          <source srcset="assets/media/intro/background--mb.svg" media="(max-width: 833px)" /><img
+            src="assets/media/intro/background.svg" alt="" />
         </picture>
         <div class="container">
           <div class="s-intro__inner">
@@ -167,8 +179,7 @@
               <h1 class="h2 s-intro__title">Олег Никифоров</h1>
               <div class="text-md s-intro__text">
                 <p>Родился в городе Луга Ленинградской области. Окончил Санкт-Петербургский университет государственной
-                  противопожарной службы МЧС России, работал по специальности государственной противопожарной службы МЧС
-                  России, работал по специальности.</p>
+                  противопожарной службы МЧС России, работал по специальности.</p>
               </div>
             </div>
             <div class="s-intro__img"><img src="assets/media/intro/oleg.png" alt="" /></div>
@@ -181,7 +192,8 @@
             <div class="img-richness s-project__art" data-anim="item"> <img class="img-richness__first"
                 src="assets/media/richness/1.svg" alt=""><img class="img-richness__second"
                 src="assets/media/richness/2.svg" alt=""></div>
-            <div class="s-project__main"><img class="s-project__logo" src="assets/media/logo/richness.svg" alt="">
+            <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
+                  src="assets/media/logo/richness.svg" alt=""></a>
               <div class="text s-project__text">
                 <p><a href="#" target="_blank">Инвестиционно-строительная компания.</a> Комплексные проекты в сфере
                   девелопмента, городского и загородного строительства, управление инвестиционной недвижимостью.</p>
@@ -193,7 +205,8 @@
       <section class="s-project s-project--aodm">
         <div class="container">
           <div class="s-project__inner">
-            <div class="s-project__main"><img class="s-project__logo" src="assets/media/logo/aodm.svg" alt="">
+            <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
+                  src="assets/media/logo/aodm.svg" alt=""></a>
               <div class="text s-project__text">
                 <p>Агентство <a href="#" target="_blank">цифрового маркетинга</a> на стыке искусства и технологий.
                   Брендинг, разработка сайтов и мобильных приложений, интернет-продвижение.</p>
@@ -211,11 +224,12 @@
           <div class="s-project__inner">
             <div class="img-culture s-project__art" data-anim="item"> <img class="img-culture__img"
                 src="assets/media/culture/1.jpg" alt=""></div>
-            <div class="s-project__main"><img class="s-project__logo" src="assets/media/logo/culture.svg" alt="">
+            <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
+                  src="assets/media/logo/culture.svg" alt=""></a>
               <div class="text s-project__text">
                 <p><a href="#" target="_blank">Петербургские</a> проекты в сфере туризма, культуры и медиа.</p>
-                <p>Разработала и развивает экспертный навигатор BEST.Petersburg и Приложение городских сервисов - единую
-                  платформу взаимодействия города, граждан и бизнеса.</p>
+                <p>Разработала и развивает экспертный навигатор <a href="#" target="_blank">BEST.Petersburg</a> и
+                  Приложение городских сервисов - единую платформу взаимодействия города, граждан и бизнеса.</p>
               </div>
               <div class="s-project__links"> <a class="s-project__link s-project__link--best" href="#"
                   target="_blank"><img src="assets/media/logo/best.svg" alt=""></a><a
@@ -228,7 +242,8 @@
       <section class="s-project s-project--deal">
         <div class="container">
           <div class="s-project__inner">
-            <div class="s-project__main"> <img class="s-project__logo" src="assets/media/logo/deal.svg" alt="">
+            <div class="s-project__main"> <a class="s-project__logo" href="#" target="_blank"> <img
+                  src="assets/media/logo/deal.svg" alt=""></a>
               <div class="text s-project__text">
                 <p><a href="#" target="_blank">Цифровая экосистема</a> рынка недвижимости. Анализ данных, автоматизация
                   продаж, интеграция с банковским сектором.</p>
@@ -258,7 +273,8 @@
             <div class="img-society s-project__art" data-anim="item"> <img class="img-society__first"
                 src="assets/media/society/1.png" alt=""><img class="img-society__second"
                 src="assets/media/society/2.png" alt=""></div>
-            <div class="s-project__main"><img class="s-project__logo" src="assets/media/logo/society.svg" alt="">
+            <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
+                  src="assets/media/logo/society.svg" alt=""></a>
               <div class="text s-project__text">
                 <p>Фонд исторических рукописей. Издает репринты, оцифровывает рукописи периода до XVI века.</p>
               </div>
@@ -271,7 +287,7 @@
           <div class="s-form__main" data-anim="item">
             <div class="s-form__inner">
               <form action="#">
-                <div class="s-form__grid">
+                <div class="s-form__row">
                   <div class="s-form__col">
                     <div class="input"><input class="input__field jsInput" type="text" name="name" placeholder="Имя" />
                       <div class="input__error">Обязательно для заполнения</div>
@@ -289,9 +305,15 @@
                     <div class="input"><textarea class="input__field jsInput" type="text" name="message"
                         placeholder="Ваш вопрос или предложение "></textarea>
                       <div class="input__error">Обязательно для заполнения</div>
-                    </div><button class="button button--md" type="submit"><span
-                        class="button__text">Отправить</span></button>
+                    </div>
                   </div>
+                </div>
+                <div class="s-form__row">
+                  <div class="s-form__col">
+                    <p class="text-sm">Отправляя данную форму вы даёте согласие на обработку персональных данных</p>
+                  </div>
+                  <div class="s-form__col"> <button class="button button--md" type="submit"><span
+                        class="button__text">Отправить</span></button></div>
                 </div>
               </form>
             </div>
