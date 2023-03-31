@@ -48,6 +48,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ 8450:
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.querySelector('.jsHeader')) {
+    var windowHeight = window.innerHeight;
+    var header = document.querySelector('.jsHeader');
+    document.addEventListener('scroll', function () {
+      if (window.pageYOffset >= windowHeight) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ 5301:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
@@ -58,6 +77,8 @@ var jquery = __webpack_require__(9755);
 var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 // EXTERNAL MODULE: ./src/components/animations/scripts.js
 var scripts = __webpack_require__(5039);
+// EXTERNAL MODULE: ./src/components/header/scripts.js
+var header_scripts = __webpack_require__(8450);
 // EXTERNAL MODULE: ./node_modules/bootstrap/dist/js/bootstrap.esm.js + 1 modules
 var bootstrap_esm = __webpack_require__(4712);
 ;// CONCATENATED MODULE: ./src/components/modal/scripts.js
