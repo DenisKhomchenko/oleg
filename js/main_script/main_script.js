@@ -513,8 +513,10 @@ var registerFormValidator = function registerFormValidator() {
 
 
 
+
 var init = function init() {
-  __webpack_require__.g.spiks = {}; // new Cookies();
+  __webpack_require__.g.spiks = {};
+  __webpack_require__.g.spiks.validator = services; // new Cookies();
 
   formValidator_init();
   __webpack_require__.g.$ = (jquery_default());
