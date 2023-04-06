@@ -398,6 +398,7 @@
         if (document.querySelector('[data-preloader="component"]')) {
           let preloader = document.querySelector('[data-preloader="component"]');
           let preloaderPercentage = preloader.querySelector('[data-preloader="percentage"]');
+          let images = document.querySelectorAll('img');
           let imagesCount = document.querySelectorAll('img').length;
           let body = document.querySelector('body');
           let percent = 100 / imagesCount;
@@ -405,15 +406,33 @@
           let loadedImg = 0;
 
           body.classList.add('_lock');
+          console.log(images)
 
           setTimeout(() => {
-            if (imagesCount != 0) {
-              for (var i = 0; i < imagesCount; i++) {
-                var img_copy = new Image();
-                img_copy.src = document.images[i].src;
-                img_copy.onload = img_load(img_copy.src);
-                img_copy.onerror = img_load;
-              }
+            if (images != 0) {
+              console.log('read')
+
+              //- Array.from(images).forEach(img =>{
+              //-     //- console.log(item)
+              //-     //- console.log(img)
+
+              //-     img.onload = () =>{
+              //-         img_load(img)
+              //-     }
+
+              //- })
+              Array.from(images).forEach(img => {
+                console.log(img)
+
+                img.onload = function () {
+                  console.log('1')
+                  img_load(img)
+                }
+                img.onerror = () => {
+                  alert('error')
+                };
+              })
+
             } else {
               progress = 100;
               loadedImg;
