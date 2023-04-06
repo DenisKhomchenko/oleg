@@ -113,8 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // EXTERNAL MODULE: ./node_modules/imask/esm/index.js + 21 modules
 var esm = __webpack_require__(2647);
 ;// CONCATENATED MODULE: ./src/components/input/scripts.js
-var _this = undefined;
-
 
 var regexpPhone = new RegExp('(7|8)\\s[\(][0-9]{3}[\)]\\s[0-9]{3}[\-][0-9]{2}[\-][0-9]{2}');
 var regexpMail = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
@@ -180,40 +178,6 @@ var _loop = function _loop(index) {
 
 for (var index = 0; index < jsInput.length; index++) {
   _loop(index);
-}
-
-var jsInputFile = document.querySelectorAll('.jsInputFile');
-
-var _loop2 = function _loop2(_index) {
-  var input = jsInputFile[_index];
-  var field = input.querySelector('.jsInputFileField');
-  var name = input.querySelector('.jsInputFileName');
-  var del = input.querySelector('.jsInputFileDelete');
-  del.addEventListener('click', function (e) {
-    e.preventDefault();
-    field.value == '';
-    input.classList.remove('is-upload');
-    name.innerHTML = '';
-  });
-  field.addEventListener('change', function () {
-    if (field.files.length != 0) {
-      input.classList.add('is-upload');
-      name.innerHTML = this.files[0].name;
-    } else {
-      input.classList.remove('is-upload');
-      name.innerHTML = '';
-    }
-  });
-  document.addEventListener('DOMContentLoaded', function () {
-    if (field.files.length != 0) {
-      input.classList.add('is-upload');
-      name.innerHTML = _this.files[0].name;
-    }
-  });
-};
-
-for (var _index = 0; _index < jsInputFile.length; _index++) {
-  _loop2(_index);
 } // let mailInputs = document.querySelectorAll('.jsMailMask');
 // for (let index = 0; index < mailInputs.length; index++){
 //     let input = mailInputs[index];
@@ -233,8 +197,6 @@ window.inputStatusAdd = function (input, status) {
     input.classList.add('is-' + status);
   } else if (input.closest('.input')) {
     input.closest('.input').classList.add('is-' + status);
-  } else if (input.closest('.search')) {
-    input.closest('.search').classList.add('is-' + status);
   }
 };
 
@@ -243,8 +205,6 @@ window.inputStatusRemove = function (input, status) {
     input.classList.remove('is-' + status);
   } else if (input.closest('.input')) {
     input.closest('.input').classList.remove('is-' + status);
-  } else if (input.closest('.search')) {
-    input.closest('.search').classList.remove('is-' + status);
   }
 }; // Input masks
 // Варианты:  'mail' ; 'phone'
