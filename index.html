@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Карта сайта</title>
-    <link rel="icon" href="assets/media/favicon.ico">
-    <link rel="icon" href="assets/media/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets/media/favicon.png">
-    <link rel="preload" href="assets/media/preloader/bg.svg" as="image">
-    <link rel="preload" href="assets/media/preloader/frame.svg" as="image">
-    <link rel="preload" href="assets/media/preloader/frame-stars.svg" as="image">
+    <link rel="icon" href="ffe36805f1d92865d7cd.ico">
+    <link rel="icon" href="assets\media\favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets\media\favicon.png">
+    <link rel="preload" href="assets\media\preloader\bg.svg" as="image">
+    <link rel="preload" href="assets\media\preloader\frame.svg" as="image">
+    <link rel="preload" href="assets\media\preloader\frame-stars.svg" as="image">
     <style type="text/css">
       .preloader {
         position: fixed;
@@ -136,10 +136,10 @@
             href="main.html">Главная</a></div>
       </div>
     </div>
-    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets/media/preloader/bg.svg"
+    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets\media\preloader\bg.svg"
         alt="" />
-      <div class="preloader__main"> <img class="preloader__frame" src="assets/media/preloader/frame.svg" alt="" /><img
-          class="preloader__frame-stars" src="assets/media/preloader/frame-stars.svg" alt="" />
+      <div class="preloader__main"> <img class="preloader__frame" src="assets\media\preloader\frame.svg" alt="" /><img
+          class="preloader__frame-stars" src="assets\media\preloader\frame-stars.svg" alt="" />
         <div class="preloader__count" data-preloader="percentage"><span>0</span>%</div>
       </div>
     </div>
@@ -188,10 +188,10 @@
                 </svg></button></div>
             <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
                 playsinline="playsinline">
-                <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
-                <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
-                  src="assets/media/modal/keyhole-video.jpg" alt="" />
-              </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
+                <source src="src/assets/media/modal/keyhole-video.mp4" type="video/mp4" />
+                <source src="19d4a2feb5a0bc90fd83.webm" type="video/webm" /><img
+                  src="assets\media\modal\keyhole-video.jpg" alt="" />
+              </video><img class="modal__frame-border" src="assets\media\modal\keyhole-border.svg" alt="" /></div>
             <div class="modal__form">
               <form action="#">
                 <div class="modal__grid">
@@ -225,7 +225,7 @@
               for (var i = 0; i < imagesCount; i++) {
                 var img_copy = new Image();
                 img_copy.src = document.images[i].src;
-                img_copy.onload = img_load;
+                img_copy.onload = img_load(img_copy.src);
                 img_copy.onerror = img_load;
               }
             } else {
@@ -237,7 +237,8 @@
 
           }, 500);
 
-          function img_load() {
+          function img_load(w) {
+            console.log(w)
             progress += percent;
             loadedImg++;
             unlock(progress, loadedImg)
