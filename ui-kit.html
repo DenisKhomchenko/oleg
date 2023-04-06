@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Kit</title>
-    <link rel="icon" href="ffe36805f1d92865d7cd.ico">
-    <link rel="icon" href="assets\media\favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets\media\favicon.png">
-    <link rel="preload" href="assets\media\preloader\bg.svg" as="image">
-    <link rel="preload" href="assets\media\preloader\frame.svg" as="image">
-    <link rel="preload" href="assets\media\preloader\frame-stars.svg" as="image">
+    <link rel="icon" href="assets/media/favicon.ico">
+    <link rel="icon" href="assets/media/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/media/favicon.png">
+    <link rel="preload" href="assets/media/preloader/bg.svg" as="image">
+    <link rel="preload" href="assets/media/preloader/frame.svg" as="image">
+    <link rel="preload" href="assets/media/preloader/frame-stars.svg" as="image">
     <style type="text/css">
       .preloader {
         position: fixed;
@@ -107,15 +107,29 @@
         animation: scaleToggle 4s ease infinite forwards;
       }
       @media only screen and (max-width: 833px) {
+        .preloader {
+          -webkit-transition-duration: 1.2s;
+          -o-transition-duration: 1.2s;
+          transition-duration: 1.2s;
+        }
+        .preloader.is-loaded .preloader__main {
+          scale: 0.65;
+        }
         .preloader__main {
           width: 320px;
           height: 320px;
+          -webkit-transition-duration: 1.1s;
+          -o-transition-duration: 1.1s;
+          transition-duration: 1.1s;
         }
         .preloader__count {
           font-size: 40px;
         }
       }
       @media only screen and (max-width: 575px) {
+        .preloader.is-loaded .preloader__main {
+          scale: 0.625;
+        }
         .preloader__main {
           width: 280px;
           height: 280px;
@@ -123,7 +137,6 @@
       }
     </style>
     <script defer src="js/vendors/vendors.js"></script>
-    <script defer src="js/main_style/main_style.js"></script>
     <script defer src="js/main_script/main_script.js"></script>
     <link href="css/vendors/vendors.css" rel="stylesheet">
     <link href="css/main_style/main_style.css" rel="stylesheet">
@@ -132,19 +145,16 @@
     <header class="header jsHeader">
       <div class="container header__container">
         <div class="header__inner"> <a class="header__logo" href="index.html"><img class="header__logo-core"
-              src="assets\media\logo\main-core.svg" alt="" /><img class="header__logo-frame"
-              src="assets\media\logo\main-frame.svg" alt="" /></a>
+              src="assets/media/logo/main-core.svg" alt="" /><img class="header__logo-frame"
+              src="assets/media/logo/main-frame.svg" alt="" /></a>
           <div class="header__actions"> <button class="header__action" type="button" data-bs-toggle="modal"
-              data-bs-target="#login"><svg class="icon">
-                <use xlink:href="#keyhole"></use>
-              </svg></button><button class="header__action" type="button" data-bs-toggle="modal"
               data-bs-target="#callback"><svg class="icon">
                 <use xlink:href="#mail"></use>
               </svg></button></div>
         </div>
       </div>
     </header>
-    <main class="main"> <img src="assets\sprite\sprite.svg" alt="" style="display: none;">
+    <main class="main"> <img src="assets/sprite/sprite.svg" alt="" style="display: none;">
       <section class="ui">
         <div class="container">
           <div class="ui__inner">
@@ -336,10 +346,10 @@
         </div>
       </section>
     </main>
-    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets\media\preloader\bg.svg"
+    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets/media/preloader/bg.svg"
         alt="" />
-      <div class="preloader__main"> <img class="preloader__frame" src="assets\media\preloader\frame.svg" alt="" /><img
-          class="preloader__frame-stars" src="assets\media\preloader\frame-stars.svg" alt="" />
+      <div class="preloader__main"> <img class="preloader__frame" src="assets/media/preloader/frame.svg" alt="" /><img
+          class="preloader__frame-stars" src="assets/media/preloader/frame-stars.svg" alt="" />
         <div class="preloader__count" data-preloader="percentage"><span>0</span>%</div>
       </div>
     </div>
@@ -351,6 +361,13 @@
                 aria-label="Close"><svg class="icon">
                   <use xlink:href="#close"></use>
                 </svg></button></div>
+            <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
+                playsinline="playsinline">
+                <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
+                <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
+                  src="assets/media/modal/keyhole-video.jpg" alt="" />
+              </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
+            <h2 class="h6 modal__subtitle">Индивидуальная консультация</h2>
             <div class="modal__form">
               <form action="#">
                 <div class="modal__grid">
@@ -358,43 +375,6 @@
                       placeholder="Имя" />
                     <div class="input__error">Обязательно для заполнения</div>
                   </div>
-                  <div class="input modal__input"><input class="input__field jsInput" type="text" name="email"
-                      placeholder="E-mail" />
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div>
-                  <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
-                      name="input" placeholder="Телефон" />
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div>
-                  <div class="input modal__textarea"><textarea class="input__field jsInput" name="message"
-                      placeholder="Ваш вопрос или предложение"></textarea>
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div><button class="button button--md modal__button" type="button"><span
-                      class="button__text">Отправить</span></button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal__main">
-            <div class="modal__header"> <button class="modal-close" type="button" data-bs-dismiss="modal"
-                aria-label="Close"><svg class="icon">
-                  <use xlink:href="#close"></use>
-                </svg></button></div>
-            <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
-                playsinline="playsinline">
-                <source src="src/assets/media/modal/keyhole-video.mp4" type="video/mp4" />
-                <source src="19d4a2feb5a0bc90fd83.webm" type="video/webm" /><img
-                  src="assets\media\modal\keyhole-video.jpg" alt="" />
-              </video><img class="modal__frame-border" src="assets\media\modal\keyhole-border.svg" alt="" /></div>
-            <div class="modal__form">
-              <form action="#">
-                <div class="modal__grid">
                   <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
                       name="input" placeholder="Телефон" />
                     <div class="input__error">Обязательно для заполнения</div>
@@ -412,6 +392,7 @@
         if (document.querySelector('[data-preloader="component"]')) {
           let preloader = document.querySelector('[data-preloader="component"]');
           let preloaderPercentage = preloader.querySelector('[data-preloader="percentage"]');
+          let images = document.querySelectorAll('img');
           let imagesCount = document.querySelectorAll('img').length;
           let body = document.querySelector('body');
           let percent = 100 / imagesCount;
@@ -422,12 +403,15 @@
 
           setTimeout(() => {
             if (imagesCount != 0) {
-              for (var i = 0; i < imagesCount; i++) {
-                var img_copy = new Image();
-                img_copy.src = document.images[i].src;
-                img_copy.onload = img_load(img_copy.src);
-                img_copy.onerror = img_load;
-              }
+              images.forEach(img => {
+                if (img.complete) {
+                  img_load()
+                } else {
+                  img.onload = () => {
+                    img_load()
+                  }
+                }
+              })
             } else {
               progress = 100;
               loadedImg;
@@ -437,8 +421,7 @@
 
           }, 500);
 
-          function img_load(w) {
-            console.log(w)
+          function img_load() {
             progress += percent;
             loadedImg++;
             unlock(progress, loadedImg)

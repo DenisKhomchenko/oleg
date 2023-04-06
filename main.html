@@ -107,15 +107,29 @@
         animation: scaleToggle 4s ease infinite forwards;
       }
       @media only screen and (max-width: 833px) {
+        .preloader {
+          -webkit-transition-duration: 1.2s;
+          -o-transition-duration: 1.2s;
+          transition-duration: 1.2s;
+        }
+        .preloader.is-loaded .preloader__main {
+          scale: 0.65;
+        }
         .preloader__main {
           width: 320px;
           height: 320px;
+          -webkit-transition-duration: 1.1s;
+          -o-transition-duration: 1.1s;
+          transition-duration: 1.1s;
         }
         .preloader__count {
           font-size: 40px;
         }
       }
       @media only screen and (max-width: 575px) {
+        .preloader.is-loaded .preloader__main {
+          scale: 0.625;
+        }
         .preloader__main {
           width: 280px;
           height: 280px;
@@ -123,7 +137,6 @@
       }
     </style>
     <script defer src="js/vendors/vendors.js"></script>
-    <script defer src="js/main_style/main_style.js"></script>
     <script defer src="js/main_script/main_script.js"></script>
     <link href="css/vendors/vendors.css" rel="stylesheet">
     <link href="css/main_style/main_style.css" rel="stylesheet">
@@ -135,9 +148,6 @@
               src="assets/media/logo/main-core.svg" alt="" /><img class="header__logo-frame"
               src="assets/media/logo/main-frame.svg" alt="" /></a>
           <div class="header__actions"> <button class="header__action" type="button" data-bs-toggle="modal"
-              data-bs-target="#login"><svg class="icon">
-                <use xlink:href="#keyhole"></use>
-              </svg></button><button class="header__action" type="button" data-bs-toggle="modal"
               data-bs-target="#callback"><svg class="icon">
                 <use xlink:href="#mail"></use>
               </svg></button></div>
@@ -319,6 +329,7 @@
               </form>
             </div>
           </div>
+          <div class="text-rg s-form__text">Цифровая визитка</div>
         </div>
       </section>
     </main>
@@ -337,6 +348,13 @@
                 aria-label="Close"><svg class="icon">
                   <use xlink:href="#close"></use>
                 </svg></button></div>
+            <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
+                playsinline="playsinline">
+                <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
+                <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
+                  src="assets/media/modal/keyhole-video.jpg" alt="" />
+              </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
+            <h2 class="h6 modal__subtitle">Индивидуальная консультация</h2>
             <div class="modal__form">
               <form action="#">
                 <div class="modal__grid">
@@ -344,43 +362,6 @@
                       placeholder="Имя" />
                     <div class="input__error">Обязательно для заполнения</div>
                   </div>
-                  <div class="input modal__input"><input class="input__field jsInput" type="text" name="email"
-                      placeholder="E-mail" />
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div>
-                  <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
-                      name="input" placeholder="Телефон" />
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div>
-                  <div class="input modal__textarea"><textarea class="input__field jsInput" name="message"
-                      placeholder="Ваш вопрос или предложение"></textarea>
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div><button class="button button--md modal__button" type="button"><span
-                      class="button__text">Отправить</span></button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal__main">
-            <div class="modal__header"> <button class="modal-close" type="button" data-bs-dismiss="modal"
-                aria-label="Close"><svg class="icon">
-                  <use xlink:href="#close"></use>
-                </svg></button></div>
-            <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
-                playsinline="playsinline">
-                <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
-                <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
-                  src="assets/media/modal/keyhole-video.jpg" alt="" />
-              </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
-            <div class="modal__form">
-              <form action="#">
-                <div class="modal__grid">
                   <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
                       name="input" placeholder="Телефон" />
                     <div class="input__error">Обязательно для заполнения</div>
@@ -408,18 +389,15 @@
           body.classList.add('_lock');
 
           setTimeout(() => {
-            if (images != 0) {
-              images.forEach((img, i) => {
+            if (imagesCount != 0) {
+              images.forEach(img => {
                 if (img.complete) {
-                  console.log('2')
-                  img_load(img)
+                  img_load()
                 } else {
                   img.onload = () => {
-                    console.log('2')
-                    img_load(img)
+                    img_load()
                   }
                 }
-
               })
             } else {
               progress = 100;
