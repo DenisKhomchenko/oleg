@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Kit</title>
     <link rel="icon" href="assets/media/favicon.ico">
-    <link rel="icon" href="assets/media/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets/media/favicon.png">
-    <link rel="preload" href="assets/media/preloader/bg.svg" as="image">
-    <link rel="preload" href="assets/media/preloader/frame.svg" as="image">
-    <link rel="preload" href="assets/media/preloader/frame-stars.svg" as="image">
+    <link rel="icon" href="assets\media\favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets\media\favicon.png">
+    <link rel="preload" href="assets\media\preloader\bg.svg" as="image">
+    <link rel="preload" href="assets\media\preloader\frame.svg" as="image">
+    <link rel="preload" href="assets\media\preloader\frame-stars.svg" as="image">
     <style type="text/css">
       .preloader {
         position: fixed;
@@ -145,8 +145,8 @@
     <header class="header jsHeader">
       <div class="container header__container">
         <div class="header__inner"> <a class="header__logo" href="index.html"><img class="header__logo-core"
-              src="assets/media/logo/main-core.svg" alt="" /><img class="header__logo-frame"
-              src="assets/media/logo/main-frame.svg" alt="" /></a>
+              src="assets\media\logo\main-core.svg" alt="" /><img class="header__logo-frame"
+              src="assets\media\logo\main-frame.svg" alt="" /></a>
           <div class="header__actions"> <button class="header__action" type="button" data-bs-toggle="modal"
               data-bs-target="#callback"><svg class="icon">
                 <use xlink:href="#mail"></use>
@@ -154,7 +154,7 @@
         </div>
       </div>
     </header>
-    <main class="main"> <img src="assets/sprite/sprite.svg" alt="" style="display: none;">
+    <main class="main"> <img src="assets\sprite\sprite.svg" alt="" style="display: none;">
       <section class="ui">
         <div class="container">
           <div class="ui__inner">
@@ -338,18 +338,16 @@
               <div class="ui__row">
                 <div class="ui__col"> <button class="button" type="button" data-bs-toggle="modal"
                     data-bs-target="#callback"><span class="button__text">Modal. Callback</span></button></div>
-                <div class="ui__col"> <button class="button" type="button" data-bs-toggle="modal"
-                    data-bs-target="#login"><span class="button__text">Modal. Login</span></button></div>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets/media/preloader/bg.svg"
+    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets\media\preloader\bg.svg"
         alt="" />
-      <div class="preloader__main"> <img class="preloader__frame" src="assets/media/preloader/frame.svg" alt="" /><img
-          class="preloader__frame-stars" src="assets/media/preloader/frame-stars.svg" alt="" />
+      <div class="preloader__main"> <img class="preloader__frame" src="assets\media\preloader\frame.svg" alt="" /><img
+          class="preloader__frame-stars" src="assets\media\preloader\frame-stars.svg" alt="" />
         <div class="preloader__count" data-preloader="percentage"><span>0</span>%</div>
       </div>
     </div>
@@ -361,27 +359,45 @@
                 aria-label="Close"><svg class="icon">
                   <use xlink:href="#close"></use>
                 </svg></button></div>
-            <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
+            <div class="modal__body">
+              <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
                 playsinline="playsinline">
                 <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
                 <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
                   src="assets/media/modal/keyhole-video.jpg" alt="" />
               </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
-            <h2 class="h6 modal__subtitle">Индивидуальная консультация</h2>
-            <div class="modal__form">
-              <form action="#">
-                <div class="modal__grid">
-                  <div class="input modal__input"><input class="input__field jsInput" type="text" name="name"
-                      placeholder="Имя" />
-                    <div class="input__error">Обязательно для заполнения</div>
+              <div class="modal__form">
+                <form action="#">
+                  <div class="modal__grid">
+                    <div class="modal__grid-row">
+                      <div class="modal__grid-col">
+                        <div class="input modal__input"><input class="input__field jsInput" type="text" name="name"
+                            placeholder="Имя" />
+                          <div class="input__error">Обязательно для заполнения</div>
+                        </div>
+                        <div class="input modal__input"><input class="input__field jsInput" type="text" name="email"
+                            placeholder="E-Mail" />
+                          <div class="input__error">Обязательно для заполнения</div>
+                        </div>
+                        <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
+                            name="input" placeholder="Телефон" />
+                          <div class="input__error">Обязательно для заполнения</div>
+                        </div>
+                      </div>
+                      <div class="modal__grid-col">
+                        <div class="input modal__textarea"><textarea class="input__field jsInput" type="text"
+                            name="message" placeholder="Ваш вопрос или предложение "></textarea>
+                          <div class="input__error">Обязательно для заполнения</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal__grid-row">
+                      <div class="modal__grid-col"> <button class="button button--md modal__button" type="submit"><span
+                            class="button__text">Отправить</span></button></div>
+                    </div>
                   </div>
-                  <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
-                      name="input" placeholder="Телефон" />
-                    <div class="input__error">Обязательно для заполнения</div>
-                  </div><button class="button button--md modal__button" type="button"><span
-                      class="button__text">Отправить</span></button>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -408,6 +424,10 @@
                   img_load()
                 } else {
                   img.onload = () => {
+                    img_load()
+                  }
+
+                  img.onerror = () => {
                     img_load()
                   }
                 }
