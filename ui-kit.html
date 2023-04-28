@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Kit</title>
     <link rel="icon" href="assets/media/favicon.ico">
-    <link rel="icon" href="assets\media\favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets\media\favicon.png">
-    <link rel="preload" href="assets\media\preloader\bg.svg" as="image">
-    <link rel="preload" href="assets\media\preloader\frame.svg" as="image">
-    <link rel="preload" href="assets\media\preloader\frame-stars.svg" as="image">
+    <link rel="icon" href="assets/media/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/media/favicon.png">
+    <link rel="preload" href="assets/media/preloader/bg.svg" as="image">
+    <link rel="preload" href="assets/media/preloader/frame.svg" as="image">
+    <link rel="preload" href="assets/media/preloader/frame-stars.svg" as="image">
     <style type="text/css">
+      body:not(.is-unlock) {
+        overflow: hidden;
+      }
       .preloader {
         position: fixed;
         top: 0;
@@ -74,8 +77,8 @@
         left: 50%;
         translate: -50% -50%;
         rotate: 0deg;
-        -webkit-animation: rotate 15s linear infinite forwards;
-        animation: rotate 15s linear infinite forwards;
+        -webkit-animation: rotateReverse 15s linear infinite forwards;
+        animation: rotateReverse 15s linear infinite forwards;
       }
       .preloader__frame-stars {
         display: block;
@@ -89,8 +92,8 @@
         border-radius: 50%;
         -webkit-box-shadow: 0px 0px 51px rgba(253, 197, 165, 0.22), inset 0px 0px 78px rgba(253, 197, 165, 0.2);
         box-shadow: 0px 0px 51px rgba(253, 197, 165, 0.22), inset 0px 0px 78px rgba(253, 197, 165, 0.2);
-        -webkit-animation: rotateReverse 45s linear infinite forwards;
-        animation: rotateReverse 45s linear infinite forwards;
+        -webkit-animation: rotate 45s linear infinite forwards;
+        animation: rotate 45s linear infinite forwards;
       }
       .preloader__count {
         font-family: "PlayfairDisplay", Montserrat, sans-serif;
@@ -144,17 +147,12 @@
   <body class="body">
     <header class="header jsHeader">
       <div class="container header__container">
-        <div class="header__inner"> <a class="header__logo" href="index.html"><img class="header__logo-core"
-              src="assets\media\logo\main-core.svg" alt="" /><img class="header__logo-frame"
-              src="assets\media\logo\main-frame.svg" alt="" /></a>
-          <div class="header__actions"> <button class="header__action" type="button" data-bs-toggle="modal"
-              data-bs-target="#callback"><svg class="icon">
-                <use xlink:href="#mail"></use>
-              </svg></button></div>
-        </div>
+        <div class="header__inner"> <a class="header__logo" href="#start"><img class="header__logo-core"
+              src="assets/media/logo/main-core.svg" alt="" /><img class="header__logo-frame"
+              src="assets/media/logo/main-frame.svg" alt="" /></a></div>
       </div>
     </header>
-    <main class="main"> <img src="assets\sprite\sprite.svg" alt="" style="display: none;">
+    <main class="main"> <img src="assets/sprite/sprite.svg" alt="" style="display: none;">
       <section class="ui">
         <div class="container">
           <div class="ui__inner">
@@ -329,78 +327,15 @@
                 </div>
               </div>
             </div>
-            <div class="ui__block">
-              <div class="ui__row">
-                <div class="ui__col">
-                  <div class="ui__title h3">Modals</div>
-                </div>
-              </div>
-              <div class="ui__row">
-                <div class="ui__col"> <button class="button" type="button" data-bs-toggle="modal"
-                    data-bs-target="#callback"><span class="button__text">Modal. Callback</span></button></div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
     </main>
-    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets\media\preloader\bg.svg"
+    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets/media/preloader/bg.svg"
         alt="" />
-      <div class="preloader__main"> <img class="preloader__frame" src="assets\media\preloader\frame.svg" alt="" /><img
-          class="preloader__frame-stars" src="assets\media\preloader\frame-stars.svg" alt="" />
+      <div class="preloader__main"> <img class="preloader__frame" src="assets/media/preloader/frame.svg" alt="" /><img
+          class="preloader__frame-stars" src="assets/media/preloader/frame-stars.svg" alt="" />
         <div class="preloader__count" data-preloader="percentage"><span>0</span>%</div>
-      </div>
-    </div>
-    <div class="modal fade" id="callback" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal__main">
-            <div class="modal__header"> <button class="modal-close" type="button" data-bs-dismiss="modal"
-                aria-label="Close"><svg class="icon">
-                  <use xlink:href="#close"></use>
-                </svg></button></div>
-            <div class="modal__body">
-              <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
-                playsinline="playsinline">
-                <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
-                <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
-                  src="assets/media/modal/keyhole-video.jpg" alt="" />
-              </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
-              <div class="modal__form">
-                <form action="#">
-                  <div class="modal__grid">
-                    <div class="modal__grid-row">
-                      <div class="modal__grid-col">
-                        <div class="input modal__input"><input class="input__field jsInput" type="text" name="name"
-                            placeholder="Имя" />
-                          <div class="input__error">Обязательно для заполнения</div>
-                        </div>
-                        <div class="input modal__input"><input class="input__field jsInput" type="text" name="email"
-                            placeholder="E-Mail" />
-                          <div class="input__error">Обязательно для заполнения</div>
-                        </div>
-                        <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
-                            name="input" placeholder="Телефон" />
-                          <div class="input__error">Обязательно для заполнения</div>
-                        </div>
-                      </div>
-                      <div class="modal__grid-col">
-                        <div class="input modal__textarea"><textarea class="input__field jsInput" type="text"
-                            name="message" placeholder="Ваш вопрос или предложение "></textarea>
-                          <div class="input__error">Обязательно для заполнения</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal__grid-row">
-                      <div class="modal__grid-col"> <button class="button button--md modal__button" type="submit"><span
-                            class="button__text">Отправить</span></button></div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <script>
@@ -414,8 +349,6 @@
           let percent = 100 / imagesCount;
           let progress = 0;
           let loadedImg = 0;
-
-          body.classList.add('_lock');
 
           setTimeout(() => {
             if (imagesCount != 0) {
@@ -454,9 +387,12 @@
 
               setTimeout(() => {
                 preloader.classList.add('is-loaded');
-                body.classList.remove('_lock');
-                body.classList.add('is-loaded');
+                body.classList.add('is-unlock');
               }, 250);
+
+              setTimeout(() => {
+                body.classList.add('is-loaded');
+              }, 750);
             }
           }
         }

@@ -83,32 +83,28 @@ var header_scripts = __webpack_require__(8450);
 var bootstrap_esm = __webpack_require__(4712);
 ;// CONCATENATED MODULE: ./src/components/modal/scripts.js
 
-var modals = document.querySelectorAll('.modal');
-var modalCallback = new bootstrap_esm/* Modal */.u_(document.querySelector('#callback')); // window.modals.list =  document.querySelectorAll('.modal');
-
 document.addEventListener('DOMContentLoaded', function () {
-  window.modal = {
-    list: document.querySelectorAll('.modal')
-  };
+  if (document.querySelector('.modal')) {
+    window.modal = {
+      list: document.querySelectorAll('.modal')
+    };
 
-  for (var index = 0; index < window.modal.list.length; index++) {
-    var item = window.modal.list[index];
-    var id = item.getAttribute('id');
-    var itemModal = new bootstrap_esm/* Modal */.u_(item);
-    window.modal[id] = itemModal;
-  }
+    for (var index = 0; index < window.modal.list.length; index++) {
+      var item = window.modal.list[index];
+      var id = item.getAttribute('id');
+      var itemModal = new bootstrap_esm/* Modal */.u_(item);
+      window.modal[id] = itemModal;
+    }
 
-  window.modal.list.forEach(function (e) {
-    e.addEventListener('shown.bs.modal', function () {
-      if (this.querySelector('[autofocus]')) {
-        this.querySelector('[autofocus]').focus();
-      }
+    window.modal.list.forEach(function (e) {
+      e.addEventListener('shown.bs.modal', function () {
+        if (this.querySelector('[autofocus]')) {
+          this.querySelector('[autofocus]').focus();
+        }
+      });
     });
-  }); // console.log(window.modal);
-  // window.modal.callback.show()
-  // window.modal.chanels.show()
-  // window.modal.success.show()
-  // window.modal.id.hide()
+  } // window.modal.callback.show()
+
 });
 // EXTERNAL MODULE: ./node_modules/imask/esm/index.js + 21 modules
 var esm = __webpack_require__(2647);
@@ -263,11 +259,12 @@ var smooth_scroll_polyfills_min_default = /*#__PURE__*/__webpack_require__.n(smo
 ;// CONCATENATED MODULE: ./src/components/link/scripts.js
 
 addEventListener('DOMContentLoaded', function () {
-  var scroll = new (smooth_scroll_polyfills_min_default())('a[href*="#"]', {
+  var scrollLink = new (smooth_scroll_polyfills_min_default())('a[href*="#"]', {
     ignore: 'a[href="#"]',
     speed: 2400,
     easing: 'easeInOutQuint',
-    updateURL: false
+    updateURL: false,
+    speedAsDuration: true
   });
 });
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
@@ -467,7 +464,6 @@ var registerFormValidator = function registerFormValidator() {
 
 
 
- // import '@components/preloader/scripts';
 
 
 

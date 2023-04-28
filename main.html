@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="icon" href="assets/media/favicon.ico">
-    <link rel="icon" href="assets\media\favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets\media\favicon.png">
-    <link rel="preload" href="assets\media\preloader\bg.svg" as="image">
-    <link rel="preload" href="assets\media\preloader\frame.svg" as="image">
-    <link rel="preload" href="assets\media\preloader\frame-stars.svg" as="image">
+    <link rel="icon" href="assets/media/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/media/favicon.png">
+    <link rel="preload" href="assets/media/preloader/bg.svg" as="image">
+    <link rel="preload" href="assets/media/preloader/frame.svg" as="image">
+    <link rel="preload" href="assets/media/preloader/frame-stars.svg" as="image">
     <style type="text/css">
+      body:not(.is-unlock) {
+        overflow: hidden;
+      }
       .preloader {
         position: fixed;
         top: 0;
@@ -74,8 +77,8 @@
         left: 50%;
         translate: -50% -50%;
         rotate: 0deg;
-        -webkit-animation: rotate 15s linear infinite forwards;
-        animation: rotate 15s linear infinite forwards;
+        -webkit-animation: rotateReverse 15s linear infinite forwards;
+        animation: rotateReverse 15s linear infinite forwards;
       }
       .preloader__frame-stars {
         display: block;
@@ -89,8 +92,8 @@
         border-radius: 50%;
         -webkit-box-shadow: 0px 0px 51px rgba(253, 197, 165, 0.22), inset 0px 0px 78px rgba(253, 197, 165, 0.2);
         box-shadow: 0px 0px 51px rgba(253, 197, 165, 0.22), inset 0px 0px 78px rgba(253, 197, 165, 0.2);
-        -webkit-animation: rotateReverse 45s linear infinite forwards;
-        animation: rotateReverse 45s linear infinite forwards;
+        -webkit-animation: rotate 45s linear infinite forwards;
+        animation: rotate 45s linear infinite forwards;
       }
       .preloader__count {
         font-family: "PlayfairDisplay", Montserrat, sans-serif;
@@ -144,31 +147,28 @@
   <body class="body">
     <header class="header jsHeader">
       <div class="container header__container">
-        <div class="header__inner"> <a class="header__logo" href="index.html"><img class="header__logo-core"
-              src="assets\media\logo\main-core.svg" alt="" /><img class="header__logo-frame"
-              src="assets\media\logo\main-frame.svg" alt="" /></a>
-          <div class="header__actions"> <button class="header__action" type="button" data-bs-toggle="modal"
-              data-bs-target="#callback"><svg class="icon">
-                <use xlink:href="#mail"></use>
-              </svg></button></div>
-        </div>
+        <div class="header__inner"> <a class="header__logo" href="#start"><img class="header__logo-core"
+              src="assets/media/logo/main-core.svg" alt="" /><img class="header__logo-frame"
+              src="assets/media/logo/main-frame.svg" alt="" /></a></div>
       </div>
     </header>
     <main class="main">
-      <section class="s-start">
+      <section class="s-start" id="start">
         <picture class="s-start__bg">
-          <source srcset="assets\media\start\background--mb.svg" media="(max-width: 833px)" /><img
-            src="assets\media\start\background.svg" alt="" />
+          <source srcset="assets/media/start/background--mb.svg" media="(max-width: 833px)" /><img
+            src="assets/media/start/background.svg" alt="" />
         </picture>
         <div class="s-start__inner">
-          <div class="s-start__main"> <img class="s-start__shape-line" src="assets\media\start\line.svg" alt="" /><img
-              class="s-start__shape-orbit" src="assets\media\start\orbit.svg" alt="" /><img class="s-start__shape-core"
-              src="assets\media\start\core.svg" alt="" />
+          <div class="s-start__main"> <img class="s-start__shape-line" src="assets/media/start/line.svg" alt="" /><img
+              class="s-start__shape-orbit" src="assets/media/start/orbit.svg" alt="" />
+            <div class="s-start__shape-cores"><img class="s-start__shape-core" src="assets/media/start/core.svg"
+                alt="" /><img class="s-start__shape-core-border" src="assets/media/start/core-border.svg" alt="" />
+            </div>
             <div class="s-start__shape-satellites"><img class="s-start__shape-satellites-orbit"
-                src="assets\media\start\satellite-main.svg" alt="" />
-              <div class="s-start__shape-satellites-group"><img src="assets\media\start\satellite.svg" alt="" /><img
-                  src="assets\media\start\satellite.svg" alt="" /><img src="assets\media\start\satellite.svg"
-                  alt="" /><img src="assets\media\start\satellite.svg" alt="" /></div>
+                src="assets/media/start/satellite-main.svg" alt="" />
+              <div class="s-start__shape-satellites-group"><img src="assets/media/start/satellite.svg" alt="" /><img
+                  src="assets/media/start/satellite.svg" alt="" /><img src="assets/media/start/satellite.svg"
+                  alt="" /><img src="assets/media/start/satellite.svg" alt="" /></div>
             </div>
           </div><a class="s-start__link" href="#intro"> <svg class="icon s-start__link-arrow s-start__link-arrow--up">
               <use xlink:href="#arrow--up"></use>
@@ -181,8 +181,8 @@
       </section>
       <section class="s-intro" id="intro">
         <picture class="s-intro__bg">
-          <source srcset="assets\media\intro\background--mb.svg" media="(max-width: 833px)" /><img
-            src="assets\media\intro\background.svg" alt="" />
+          <source srcset="assets/media/intro/background--mb.svg" media="(max-width: 833px)" /><img
+            src="assets/media/intro/background.svg" alt="" />
         </picture>
         <div class="container">
           <div class="s-intro__inner">
@@ -193,7 +193,7 @@
                   противопожарной службы МЧС России, работал по специальности.</p>
               </div>
             </div>
-            <div class="s-intro__img"><img src="assets\media\intro\oleg.png" alt="" /></div>
+            <div class="s-intro__img"><img src="assets/media/intro/oleg.png" alt="" /></div>
           </div>
         </div>
       </section>
@@ -201,10 +201,11 @@
         <div class="container">
           <div class="s-project__inner">
             <div class="img-richness s-project__art" data-anim="item"> <img class="img-richness__first"
-                src="assets\media\richness\1.svg" alt=""><img class="img-richness__second"
-                src="assets\media\richness\2.svg" alt=""></div>
+                src="assets/media/richness/1.svg" alt=""><img class="img-richness__second"
+                src="assets/media/richness/2.svg" alt=""><img class="img-richness__third"
+                src="assets/media/richness/3.svg" alt=""></div>
             <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
-                  src="assets\media\logo\richness.svg" alt=""></a>
+                  src="assets/media/logo/richness.svg" alt=""></a>
               <div class="text s-project__text">
                 <p><a href="#" target="_blank">Инвестиционно-строительная компания.</a> Комплексные проекты в сфере
                   девелопмента, городского и загородного строительства, управление инвестиционной недвижимостью.</p>
@@ -217,16 +218,16 @@
         <div class="container">
           <div class="s-project__inner">
             <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
-                  src="assets\media\logo\aodm.svg" alt=""></a>
+                  src="assets/media/logo/aodm.svg" alt=""></a>
               <div class="text s-project__text">
                 <p>Агентство <a href="#" target="_blank">цифрового маркетинга</a> на стыке искусства и технологий.
                   Брендинг, разработка сайтов и мобильных приложений, интернет-продвижение.</p>
               </div>
             </div>
             <div class="img-aodm s-project__art" data-anim="item"> <img class="img-aodm__triangle"
-                src="assets\media\aodm\triangle.svg" alt=""><img class="img-aodm__set" src="assets\media\aodm\set.svg"
-                alt=""><img class="img-aodm__eclipse" src="assets\media\aodm\eclipse.svg" alt=""><img
-                class="img-aodm__line" src="assets\media\aodm\line.svg" alt=""></div>
+                src="assets/media/aodm/triangle.svg" alt=""><img class="img-aodm__set" src="assets/media/aodm/set.svg"
+                alt=""><img class="img-aodm__eclipse" src="assets/media/aodm/eclipse.svg" alt=""><img
+                class="img-aodm__line" src="assets/media/aodm/line.svg" alt=""></div>
           </div>
         </div>
       </section>
@@ -234,18 +235,18 @@
         <div class="container">
           <div class="s-project__inner">
             <div class="img-culture s-project__art" data-anim="item"> <img class="img-culture__img"
-                src="assets\media\culture\1.jpg" alt=""></div>
+                src="assets/media/culture/1.jpg" alt=""></div>
             <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
-                  src="assets\media\logo\culture.svg" alt=""></a>
+                  src="assets/media/logo/culture.svg" alt=""></a>
               <div class="text s-project__text">
                 <p><a href="#" target="_blank">Петербургские</a> проекты в сфере туризма, культуры и медиа.</p>
                 <p>Разработала и развивает экспертный навигатор <a href="#" target="_blank">BEST.Petersburg</a> и
                   Приложение городских сервисов - единую платформу взаимодействия города, граждан и бизнеса.</p>
               </div>
               <div class="s-project__links"> <a class="s-project__link s-project__link--best" href="#"
-                  target="_blank"><img src="assets\media\logo\best.svg" alt=""></a><a
+                  target="_blank"><img src="assets/media/logo/best.svg" alt=""></a><a
                   class="s-project__link s-project__link--digital" href="#" target="_blank"><img
-                    src="assets\media\logo\digital.svg" alt=""></a></div>
+                    src="assets/media/logo/digital.svg" alt=""></a></div>
             </div>
           </div>
         </div>
@@ -254,26 +255,26 @@
         <div class="container">
           <div class="s-project__inner">
             <div class="s-project__main"> <a class="s-project__logo" href="#" target="_blank"> <img
-                  src="assets\media\logo\deal.svg" alt=""></a>
+                  src="assets/media/logo/deal.svg" alt=""></a>
               <div class="text s-project__text">
                 <p><a href="#" target="_blank">Цифровая экосистема</a> рынка недвижимости. Анализ данных, автоматизация
                   продаж, интеграция с банковским сектором.</p>
               </div>
             </div>
             <div class="img-deal s-project__art" data-anim="item">
-              <div class="img-deal__core-group"><img class="img-deal__core" src="assets\media\deal\core.svg" alt="">
+              <div class="img-deal__core-group"><img class="img-deal__core" src="assets/media/deal/core.svg" alt="">
                 <div class="img-deal__icons">
-                  <div class="img-deal__icon"> <img src="assets\media\deal\ring2.svg" alt=""></div>
-                  <div class="img-deal__icon"> <img src="assets\media\deal\ring2.svg" alt=""></div>
-                  <div class="img-deal__icon"> <img src="assets\media\deal\ring2.svg" alt=""></div>
+                  <div class="img-deal__icon"> <img src="assets/media/deal/ring.svg" alt=""></div>
+                  <div class="img-deal__icon"> <img src="assets/media/deal/ring.svg" alt=""></div>
+                  <div class="img-deal__icon"> <img src="assets/media/deal/ring.svg" alt=""></div>
                 </div>
-              </div><img class="img-deal__orbit-1" src="assets\media\deal\orbit-1.svg" alt="">
-              <div class="img-deal__orbit-group"> <img class="img-deal__orbit-2" src="assets\media\deal\orbit-2.svg"
+              </div><img class="img-deal__orbit-1" src="assets/media/deal/orbit-1.svg" alt="">
+              <div class="img-deal__orbit-group"> <img class="img-deal__orbit-2" src="assets/media/deal/orbit-2.svg"
                   alt="">
-                <div class="img-deal__icons"><img src="assets\media\deal\icon-3.svg" alt=""><img
-                    src="assets\media\deal\icon-1.svg" alt=""><img src="assets\media\deal\icon-4.svg" alt=""><img
-                    src="assets\media\deal\icon-2.svg" alt=""></div>
-              </div><img class="img-deal__orbit-3" src="assets\media\deal\orbit-3.svg" alt="">
+                <div class="img-deal__icons"><img src="assets/media/deal/icon-3.svg" alt=""><img
+                    src="assets/media/deal/icon-1.svg" alt=""><img src="assets/media/deal/icon-4.svg" alt=""><img
+                    src="assets/media/deal/icon-2.svg" alt=""></div>
+              </div><img class="img-deal__orbit-3" src="assets/media/deal/orbit-3.svg" alt="">
             </div>
           </div>
         </div>
@@ -282,10 +283,10 @@
         <div class="container">
           <div class="s-project__inner">
             <div class="img-society s-project__art" data-anim="item"> <img class="img-society__first"
-                src="assets\media\society\1.png" alt=""><img class="img-society__second"
-                src="assets\media\society\2.png" alt=""></div>
+                src="assets/media/society/1.png" alt=""><img class="img-society__second"
+                src="assets/media/society/2.png" alt=""></div>
             <div class="s-project__main"><a class="s-project__logo" href="#" target="_blank"> <img
-                  src="assets\media\logo\society.svg" alt=""></a>
+                  src="assets/media/logo/society.svg" alt=""></a>
               <div class="text s-project__text">
                 <p>Фонд исторических рукописей. Издает репринты, оцифровывает рукописи периода до XVI века.</p>
               </div>
@@ -297,99 +298,55 @@
         <div class="container">
           <div class="s-form__main" data-anim="item">
             <div class="s-form__inner">
-              <form action="#">
-                <div class="s-form__row">
-                  <div class="s-form__col">
-                    <div class="input"><input class="input__field jsInput" type="text" name="name" placeholder="Имя" />
-                      <div class="input__error">Обязательно для заполнения</div>
-                    </div>
-                    <div class="input"><input class="input__field jsInput" type="text" name="email"
-                        placeholder="E-mail" />
-                      <div class="input__error">Обязательно для заполнения</div>
-                    </div>
-                    <div class="input"><input class="input__field jsInput jsPhoneMask" type="text" name="input"
-                        placeholder="Телефон" />
-                      <div class="input__error">Обязательно для заполнения</div>
-                    </div>
-                  </div>
-                  <div class="s-form__col">
-                    <div class="input"><textarea class="input__field jsInput" name="message"
-                        placeholder="Ваш вопрос или предложение"></textarea>
-                      <div class="input__error">Обязательно для заполнения</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="s-form__row">
-                  <div class="s-form__col">
-                    <p class="text-sm">Отправляя данную форму вы даёте согласие на обработку персональных данных</p>
-                  </div>
-                  <div class="s-form__col"> <button class="button button--md" type="submit"><span
-                        class="button__text">Отправить</span></button></div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="text-rg s-form__text">Цифровая визитка</div>
-        </div>
-      </section>
-    </main>
-    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets\media\preloader\bg.svg"
-        alt="" />
-      <div class="preloader__main"> <img class="preloader__frame" src="assets\media\preloader\frame.svg" alt="" /><img
-          class="preloader__frame-stars" src="assets\media\preloader\frame-stars.svg" alt="" />
-        <div class="preloader__count" data-preloader="percentage"><span>0</span>%</div>
-      </div>
-    </div>
-    <div class="modal fade" id="callback" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal__main">
-            <div class="modal__header"> <button class="modal-close" type="button" data-bs-dismiss="modal"
-                aria-label="Close"><svg class="icon">
-                  <use xlink:href="#close"></use>
-                </svg></button></div>
-            <div class="modal__body">
-              <div class="modal__frame"> <video class="modal__frame-video" muted="muted" loop="loop" autoplay="autoplay"
-                playsinline="playsinline">
-                <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
-                <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
-                  src="assets/media/modal/keyhole-video.jpg" alt="" />
-              </video><img class="modal__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
-              <div class="modal__form">
+              <div class="s-form__frame"> <video class="s-form__frame-video" muted="muted" loop="loop"
+                  autoplay="autoplay" playsinline="playsinline">
+                  <source src="assets/media/modal/keyhole-video.mp4" type="video/mp4" />
+                  <source src="assets/media/modal/keyhole-video.webm" type="video/webm" /><img
+                    src="assets/media/modal/keyhole-video.jpg" alt="" />
+                </video><img class="s-form__frame-border" src="assets/media/modal/keyhole-border.svg" alt="" /></div>
+              <div class="s-form__form">
                 <form action="#">
-                  <div class="modal__grid">
-                    <div class="modal__grid-row">
-                      <div class="modal__grid-col">
-                        <div class="input modal__input"><input class="input__field jsInput" type="text" name="name"
+                  <div class="s-form__grid">
+                    <div class="s-form__grid-row">
+                      <div class="s-form__grid-col">
+                        <div class="input s-form__input"><input class="input__field jsInput" type="text" name="name"
                             placeholder="Имя" />
                           <div class="input__error">Обязательно для заполнения</div>
                         </div>
-                        <div class="input modal__input"><input class="input__field jsInput" type="text" name="email"
+                        <div class="input s-form__input"><input class="input__field jsInput" type="text" name="email"
                             placeholder="E-Mail" />
                           <div class="input__error">Обязательно для заполнения</div>
                         </div>
-                        <div class="input modal__input"><input class="input__field jsInput jsPhoneMask" type="text"
+                        <div class="input s-form__input"><input class="input__field jsInput jsPhoneMask" type="text"
                             name="input" placeholder="Телефон" />
                           <div class="input__error">Обязательно для заполнения</div>
                         </div>
                       </div>
-                      <div class="modal__grid-col">
-                        <div class="input modal__textarea"><textarea class="input__field jsInput" type="text"
-                            name="message" placeholder="Ваш вопрос или предложение "></textarea>
+                      <div class="s-form__grid-col">
+                        <div class="input s-form__textarea"><textarea class="input__field jsInput" type="text"
+                            name="message" placeholder="Ваш вопрос или предложение"></textarea>
                           <div class="input__error">Обязательно для заполнения</div>
                         </div>
                       </div>
                     </div>
-                    <div class="modal__grid-row">
-                      <div class="modal__grid-col"> <button class="button button--md modal__button" type="submit"><span
-                            class="button__text">Отправить</span></button></div>
+                    <div class="s-form__grid-row">
+                      <div class="s-form__grid-col"> <button class="button button--md s-form__button"
+                          type="submit"><span class="button__text">Отправить</span></button></div>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+          <div class="text-rg s-form__text">Цифровая визитка</div>
         </div>
+      </section>
+    </main>
+    <div class="preloader" data-preloader="component"><img class="preloader__bg" src="assets/media/preloader/bg.svg"
+        alt="" />
+      <div class="preloader__main"> <img class="preloader__frame" src="assets/media/preloader/frame.svg" alt="" /><img
+          class="preloader__frame-stars" src="assets/media/preloader/frame-stars.svg" alt="" />
+        <div class="preloader__count" data-preloader="percentage"><span>0</span>%</div>
       </div>
     </div>
     <script>
@@ -403,8 +360,6 @@
           let percent = 100 / imagesCount;
           let progress = 0;
           let loadedImg = 0;
-
-          body.classList.add('_lock');
 
           setTimeout(() => {
             if (imagesCount != 0) {
@@ -443,9 +398,12 @@
 
               setTimeout(() => {
                 preloader.classList.add('is-loaded');
-                body.classList.remove('_lock');
-                body.classList.add('is-loaded');
+                body.classList.add('is-unlock');
               }, 250);
+
+              setTimeout(() => {
+                body.classList.add('is-loaded');
+              }, 750);
             }
           }
         }
