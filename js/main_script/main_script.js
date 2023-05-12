@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ 5301:
+/***/ 1369:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -253,6 +253,54 @@ window.runMask = function () {
     }
   }
 }; // window.runMask() перезапуск маски
+;// CONCATENATED MODULE: ./src/components/input-file/scripts.js
+var inputFileComponent = function inputFileComponent(node) {
+  var component = node;
+  var input = component.querySelector('[data-input-file="input"]');
+  var content = component.querySelector('[data-input-file="content"]');
+
+  input.onchange = function () {
+    if (input.files.length != 0) {
+      clear();
+      component.classList.add('is-upload');
+      Array.from(input.files).forEach(function (item) {
+        addFile(item.name);
+      });
+    } else {
+      component.classList.add('is-remove');
+      clear();
+    }
+  };
+
+  var clear = function clear() {
+    content.innerHTML = "";
+  };
+
+  var addFile = function addFile(name) {
+    var item = document.createElement('div');
+    item.classList.add('input-file__item');
+    item.setAttribute('data-input-file', 'item');
+    item.innerHTML = "\n        <button class=\"input-file__delete\" type=\"button\" data-input-file=\"delete\">\n            <svg class=\"icon\">\n                <use xlink:href=\"#close\"></use>\n            </svg>\n        </button>\n        <span class=\"input-file__name\" data-input-file=\"name\">\n            ".concat(name, "\n        </span>");
+    item.querySelector('[data-input-file="delete"]').addEventListener('click', function (e) {
+      e.preventDefault();
+      input.value = null;
+      clear();
+    });
+    content.append(item);
+  };
+};
+
+var inputFileInit = function inputFileInit() {
+  var inputs = Array.from(document.querySelectorAll('[data-component="input-file"]'));
+  inputs.forEach(function (item) {
+    inputFileComponent(item);
+  });
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  inputFileInit();
+});
+/* harmony default export */ var input_file_scripts = ((/* unused pure expression or super */ null && (inputFileInit)));
 // EXTERNAL MODULE: ./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js
 var smooth_scroll_polyfills_min = __webpack_require__(3002);
 var smooth_scroll_polyfills_min_default = /*#__PURE__*/__webpack_require__.n(smooth_scroll_polyfills_min);
@@ -470,6 +518,7 @@ var registerFormValidator = function registerFormValidator() {
 
 
 
+
 var init = function init() {
   __webpack_require__.g.spiks = {};
   __webpack_require__.g.spiks.validator = services; // new Cookies();
@@ -678,7 +727,7 @@ src_init();
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(5301); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(1369); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
